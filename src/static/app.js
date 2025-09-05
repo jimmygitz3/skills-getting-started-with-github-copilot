@@ -28,8 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
           <p><strong>Current Participants:</strong></p>
           <ul>
             ${details.participants.length > 0 
-              ? details.participants.map(email => `<li>${email}</li>`).join('')
-              : '<li>No participants yet</li>'
+              ? details.participants.map(email => `
+                <li>${email.split('@')[0]} 
+                  <span class="participant-email">@${email.split('@')[1]}</span>
+                </li>`).join('')
+              : '<li class="no-participants">No participants yet</li>'
             }
           </ul>
         `;
